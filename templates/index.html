@@ -1,0 +1,92 @@
+{%extends 'base.html' %}
+
+{% block head %}
+
+
+
+{% endblock %}
+
+
+{% block body %}
+   <div class="site-content">
+			<div class="site-header">
+				<div class="container">
+					<a href="{{ url_for('index') }}" class="branding">
+						<img src="{{ url_for('static', filename='images/logo.png') }}" alt="" class="logo">
+						<div class="logo-type">
+							<h1 class="site-title">Weather</h1>
+							<small class="site-description">Accurate weather</small>
+						</div>
+					</a>
+
+					<!-- Default snippet for navigation -->
+					<div class="main-navigation">
+						<button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
+						<ul class="menu">
+							<li class="menu-item current-menu-item"><a href="{{ url_for('index') }}">Home</a></li>
+
+						</ul> <!-- .menu -->
+					</div> <!-- .main-navigation -->
+
+					<div class="mobile-navigation"></div>
+
+				</div>
+			</div> <!-- .site-header -->
+
+			<div class="hero" data-bg-image="images/banner.png">
+				<div class="container">
+					<form method="POST" action="/" class="find-location">
+						<input type="text" name="city" placeholder="Find your location...">
+						<input type="submit" value="Find">
+					</form>
+
+				</div>
+			</div>
+			<div class="forecast-table">
+				<div class="container">
+					<div class="forecast-container">
+						<div class="today forecast">
+							<div class="forecast-header">
+								<div class="day">{{ day }}</div>
+								<div class="date">{{ time }}</div>
+							</div> <!-- .forecast-header -->
+							<div class="forecast-content">
+								<div class="location">{{ city }}</div>
+								<div class="degree">
+									<div class="num">{{ temp }}<sup>{{ degree }}</sup>{{ celsi }}</div>
+									<div class="forecast-icon">
+										<img src="{{ icon }}" alt="" width=90>
+									</div>
+
+								</div>
+                                <span style = font-size:20px;>{{ sky }}</span>
+                                <span class = "skydiv">{{ skydesc }}</span>
+                                <br>
+                                <br>
+								<span><img src="{{ url_for('static', filename='images/icon-umberella.png') }}" alt="">{{ percep }}</span>
+								<span><img src="{{ url_for('static', filename='images/icon-wind.png') }}" alt="">{{ windmsg }}</span>
+								<span><img src="{{ url_for('static', filename='images/icon-compass.png') }}" alt="">{{ winddir }}</span>
+							</div>
+						</div>
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+    <main class="main-content">
+				<div class="fullwidth-block">
+					<div class="container">
+
+
+						</div>
+					</div>
+
+                </div>
+		<script src="{{ url_for('static', filename='js/jquery-1.11.1.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/plugins.js"') }}"></script>
+		<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    </main>
+ {% endblock %}
